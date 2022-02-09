@@ -2,7 +2,7 @@ var http = require('http')
 var url = require('url')
 
 function get_time(){
-  var now = new Date();
+  var now = new Date()
   return {
         year : now.getFullYear(),
         month : now.getMonth() + 1,
@@ -14,13 +14,13 @@ function get_time(){
 var server = http.createServer(function (request, response) {
    if (/^\/api\/currenttime/.test(request.url)){
    	var result = get_time()
-     	response.writeHead(200, {'Content-Type': 'text/plain'});
-     	response.end(JSON.stringify(result));
+     	response.writeHead(200, {'Content-Type': 'text/plain'})
+     	response.end(JSON.stringify(result))
    }else{
    	  response.writeHead(404 , {'Content-Type': 'text/plain'})
-    	response.end("URL does not matched the pattern of /api/currenttime");
+    	response.end("URL does not matched the pattern of /api/currenttime")
    }
 });
 
-server.listen(Number(process.argv[2]));
-console.log('Node server running on http://localhost:'+ process.argv[2]);
+server.listen(Number(process.argv[2]))
+console.log('Node server running on http://localhost:'+ process.argv[2])
